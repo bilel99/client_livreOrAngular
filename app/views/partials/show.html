@@ -1,0 +1,25 @@
+<div class="ui comments" ng-repeat="raw in show">
+    <a href="#commentaire" class="massive ui olive button">Retour</a>
+    <h3 class="ui dividing header">Commentaire N°{{raw.id}}</h3>
+        <div class="comment">
+
+            <a class="avatar" ng-if="raw.choixImage == 'monImage' ">
+                <img src="http://localhost:8080/assets/upload/{{raw.monimage}}" alt="avatar">
+            </a>
+            <a class="avatar" ng-if="raw.choixImage == 'avatar' ">
+                <img src="{{raw.avatar}}" alt="avatar">
+            </a>
+
+            <div class="content">
+                <div class="metadata">
+                    <div class="date">
+                        {{raw.created_at}}
+                    </div>
+                </div>
+                <div class="test">
+                    {{raw.content}}
+                </div>
+
+            </div>
+        </div>
+</div>

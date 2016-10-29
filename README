@@ -1,0 +1,4 @@
+Application Client créer sous Angular JS, et qui réaliser un livre d'or 
+Connection à l'Api créer sous Node.js avec Framework Express
+Récupération des information sous format JSON
+Utilisation de $resource sur Angular JS

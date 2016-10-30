@@ -1,5 +1,12 @@
 <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
 
+<div class="ui negative message success_mess" style="display:none;">
+    <div class="error"></div>
+</div>
+<div class="ui positive message error_mess" style="display:none;">
+    <div class="success"></div>
+</div>
+
 <form class="ui form" ng-submit="addCommentaire()">
     <div class="field">
         <label for="message"> Message </label>
@@ -23,63 +30,64 @@
 
 <div class="ui comments">
     <h3 class="ui dividing header">Commentaires</h3>
-        <div class="comment" ng-repeat="raw in commentaire">
-
-            <a class="avatar" href="#show/{{raw.id}}" ng-if="raw.choixImage == 'monImage' ">
-                <img src="http://localhost:8080/assets/upload/{{raw.monimage}}" alt="avatar">
-            </a>
-            <a class="avatar" href="#show/{{raw.id}}" ng-if="raw.choixImage == 'avatar' ">
-                <img src="{{raw.avatar}}" alt="avatar">
-            </a>
-
-            <a ng-click="editUpdate(raw.id)" class="ui inverted blue button edit_content_click_{{raw.id}}" style="float: right;">
-                <i class="icon edit"></i> Modifier
-            </a>
-
-            <form class="ui form" ng-submit="deleteCommentaire(raw.id)">
-                <button type="submit" class="ui inverted red button" style="float: right;">
-                    <i class="icon delete"></i> Supprimer
-                </button>
-            </form>
             
-            <div class="content">
-                <div class="metadata">
-                    <div class="date">
-                        {{raw.created_at}}
+            <div class="comment" id="comment_{{raw.id}}" ng-repeat="raw in commentaire">
+
+                <a class="avatar" href="#show/{{raw.id}}" ng-if="raw.choixImage == 'monImage' ">
+                    <img src="http://localhost:8080/assets/upload/{{raw.monimage}}" alt="avatar">
+                </a>
+                <a class="avatar" href="#show/{{raw.id}}" ng-if="raw.choixImage == 'avatar' ">
+                    <img src="{{raw.avatar}}" alt="avatar">
+                </a>
+
+                <a ng-click="editUpdate(raw.id)" class="ui inverted blue button edit_content_click_{{raw.id}}" style="float: right;">
+                    <i class="icon edit"></i> Modifier
+                </a>
+
+                <form class="ui form" ng-submit="deleteCommentaire(raw.id)">
+                    <button type="submit" class="ui inverted red button" style="float: right;">
+                        <i class="icon delete"></i> Supprimer
+                    </button>
+                </form>
+                
+                <div class="content">
+                    <div class="metadata">
+                        <div class="date">
+                            {{raw.created_at}}
+                        </div>
                     </div>
-                </div>
-                <div class="test">
-                    {{raw.content}}
-                </div>
-
-                <div class="edit_content_id_{{raw.id}}" style="display: none;">
-                    <div ng-repeat="r in show">
-                        
-                        <form class="ui form" ng-submit="updateCommentaire()">
-                            <div class="field">
-                                <input type="hidden" 
-                                        name="idn" 
-                                        id="idn" 
-                                        ng-model="idn"
-                                        ng-init="idn = r.id" />
-                            </div>
-
-                            <div class="field">
-                                <label for="message"> Message </label>
-                                    <textarea 
-                                        name="edit" 
-                                        id="edit" 
-                                        ng-model="edit"                                        ng-init="edit = r.content" />
-                            </div>
-
-                            <button type="submit" class="ui blue labeled submit icon button">
-                                <i class="icon edit"></i> Modifier
-                            </button>
-                        </form>
-                        
+                    <div class="test">
+                        {{raw.content}}
                     </div>
-                </div>
 
+                    <div class="edit_content_id_{{raw.id}}" style="display: none;">
+                        <div ng-repeat="r in show">
+                            
+                            <form class="ui form" ng-submit="updateCommentaire()">
+                                <div class="field">
+                                    <input type="hidden" 
+                                            name="idn" 
+                                            id="idn" 
+                                            ng-model="idn"
+                                            ng-init="idn = r.id" />
+                                </div>
+
+                                <div class="field">
+                                    <label for="message"> Message </label>
+                                        <textarea 
+                                            name="edit" 
+                                            id="edit" 
+                                            ng-model="edit"                                        ng-init="edit = r.content" />
+                                </div>
+
+                                <button type="submit" class="ui blue labeled submit icon button">
+                                    <i class="icon edit"></i> Modifier
+                                </button>
+                            </form>
+                            
+                        </div>
+                    </div>
+
+                </div>
             </div>
-        </div>
 </div>

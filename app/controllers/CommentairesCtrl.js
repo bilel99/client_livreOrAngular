@@ -1,21 +1,23 @@
 angular.module('myApp')
-    .controller('CommentairesCtrl', function($scope, CommentaireService, $timeout){
-
-        /*function get(){
-            let query = CommentaireService.query()
-            query.$promise.then(function(data){
-                $scope.commentaire = data
-            })
-        }
-        setInterval(get, 1000)*/
+    .controller('CommentairesCtrl', function($scope, CommentaireService, $timeout, localStorageService, $location){
 
         function get(){
             let query = CommentaireService.query()
             query.$promise.then(function(data){
                 $scope.commentaire = data
+
+                // Récupération du localStorage (équivalent à la session)
+                $scope.user = localStorageService.get('user')
             })
         }
         get()
+
+
+
+        $scope.logout = function(){
+            localStorageService.clearAll()
+            $location.path('/')
+        }
 
         $scope.addCommentaire = function(){
             if($scope.content === undefined || $scope.content === ''){
@@ -82,4 +84,6 @@ angular.module('myApp')
                 $('.success_mess').fadeOut()
             }, 3000) 
         }
+
+
     })

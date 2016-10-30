@@ -13,25 +13,19 @@
         </style>
     </head>
     <body ng-app="myApp">
-        <div class="ui fixed inverted menu">
-            <a href="#" class="header item">Accueil</a>
-            <div class="right menu">
-                <a href="#" class="ui item"><span>Changer mon mot de passe</span></a>
-                <a href="#" class="ui item"><span>Hello</span></a>
-                <a class="ui item" href="#">Encore un truc</a>
-            </div>
-        </div>
 
-        <div class="ui main container">
-            <div ng-view></div>
-        </div>
+        <div ng-view></div>
 
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.30/angular.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.30/angular-route.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.30/angular-resource.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.30/angular-animate.min.js"></script>
+        <script src="node_modules/angular-local-storage/dist/angular-local-storage.min.js "></script>
         <script src="app/app.js"></script>
+        <script src="app/models/factories/LoginService.js"></script>
+        <script src="app/models/factories/CommentaireService.js"></script>
+        <script src="app/controllers/LoginCtrl.js"></script>
         <script src="app/controllers/CommentairesCtrl.js"></script>
         <script src="app/controllers/CommentaireCtrl.js"></script>
-        <script src="app/models/factories/CommentaireService.js"></script>
     </body>
 </html>

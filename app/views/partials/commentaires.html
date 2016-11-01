@@ -14,11 +14,6 @@
     <form class="ui form" ng-submit="addCommentaire()">
         <div class="field">
             <label for="message"> Message </label>
-            <input  type="hidden" 
-                    name="users_id" 
-                    id="users_id" 
-                    ng-model="users_id"
-                    ng-init="users_id = '3'" />
             <textarea 
                     name="content" 
                     id="content" 
@@ -44,16 +39,18 @@
                         <img src="{{raw.avatar}}" alt="avatar">
                     </a>
 
-                    <a ng-click="editUpdate(raw.id)" class="ui inverted blue button edit_content_click_{{raw.id}}" style="float: right;">
+
+                    <a ng-if="raw.users_id == idUtilisateur" ng-click="editUpdate(raw.id)" class="ui inverted blue button edit_content_click_{{raw.id}}" style="float: right;">
                         <i class="icon edit"></i> Modifier
                     </a>
 
-                    <form class="ui form" ng-submit="deleteCommentaire(raw.id)">
+                    <form ng-if="raw.users_id == idUtilisateur" class="ui form" ng-submit="deleteCommentaire(raw.id)">
                         <button type="submit" class="ui inverted red button" style="float: right;">
                             <i class="icon delete"></i> Supprimer
                         </button>
                     </form>
-                    
+
+
                     <div class="content">
                         <div class="metadata">
                             <div class="date">

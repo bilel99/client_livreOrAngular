@@ -5,9 +5,10 @@ angular.module('myApp')
             let query = CommentaireService.query()
             query.$promise.then(function(data){
                 $scope.commentaire = data
-
+                
                 // Récupération du localStorage (équivalent à la session)
                 $scope.user = localStorageService.get('user')
+                $scope.idUtilisateur = $scope.user.id
             })
         }
         get()
@@ -28,7 +29,7 @@ angular.module('myApp')
                     $('.error_mess').fadeOut()
                 }, 3000)
             }else{
-                $scope.insert = CommentaireService.save({users_id : '3', content : $scope.content})
+                $scope.insert = CommentaireService.save({users_id : $scope.user.id, content : $scope.content})
                 
                 $scope.insert.$promise.then(function(data){
                     $('.success_mess').addClass('success')
@@ -67,6 +68,7 @@ angular.module('myApp')
                     $('.success_mess').fadeOut()
                 }, 3000)
 
+                get()
                 get()
                 get()
             }

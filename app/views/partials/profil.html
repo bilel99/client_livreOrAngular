@@ -1,0 +1,110 @@
+<div ng-include src="app/views/navbar/navbar.html"></div>
+
+<div class="ui main container">
+    <link rel="stylesheet" href="public/css/register.css">
+
+    <div class="ui negative message success_mess" style="display:none;">
+        <div class="error"></div>
+    </div>
+    <div class="ui positive message error_mess" style="display:none;">
+        <div class="success"></div>
+    </div>
+
+    <div class="ui one column center aligned grid">
+        <div class="column six wide form-holder">
+            <h2 class="center aligned header form-head">Profil</h2>
+            <div class="ui form">
+
+                <div ng-repeat="raw in show">
+                    <form enctype="multipart/form-data" ng-submit="update()">
+
+                        <div class="field">
+                            <input type="email" 
+                                    name="email" 
+                                    id="email" 
+                                    placeholder="email"
+                                    ng-model="email"
+                                    ng-init="email = raw.email">
+                        </div>
+
+                        <div class="field">
+                            <input type="text" 
+                                    name="nom" 
+                                    id="nom" 
+                                    placeholder="nom"
+                                    ng-model="nom"
+                                    ng-init="nom = raw.nom">
+                        </div>
+
+                        <div class="field">
+                            <input type="text" 
+                                    name="prenom" 
+                                    id="prenom" 
+                                    placeholder="prenom"
+                                    ng-model="prenom"
+                                    ng-init="prenom = raw.prenom">
+                        </div>
+
+                        <div class="field">
+                            <input type="date" 
+                                    name="date_naissance" 
+                                    id="date_naissance" 
+                                    placeholder="date de naissance"
+                                    ng-model="date_naissance"
+                                    ng-init="date_naissance = raw.date_naissance">
+                        </div>
+
+                        <div class="field">
+                            <input type="text" 
+                                    name="avatar" 
+                                    id="avatar" 
+                                    placeholder="Votre Avatar" 
+                                    ng-model="avatar"
+                                    ng-init="avatar = raw.avatar">
+                        </div>
+
+                        <input type="text" 
+                                name="monImageFile" 
+                                id="monImageFile" 
+                                ng-model="monImageFile"
+                                ng-init="monImageFile = raw.monimage">
+                        <div class="field">
+                            <input type="file" 
+                                    name="monimage" 
+                                    id="monimage"
+                                    ng-model="monimage">
+                        </div>
+
+                        <h3>Choix de l'image</h3>
+                        <div class="field">
+                            <input type="radio" 
+                                    name="choixImage" 
+                                    ng-model="choixImage"
+                                    ng-init="choixImage = raw.choixImage"
+                                    value="{{raw.choixImage}}">
+                            <label>avatar</label>
+                        </div>
+
+                        <div class="field">
+                            <input type="radio" 
+                                    name="choixImage" 
+                                    ng-model="choixImage"
+                                    ng-init="choixImage = raw.choixImage"
+                                    value="{{raw.choixImage}}">
+                            <label>Mon image</label>
+                        </div>
+
+
+                        <hr>
+                        <div class="field">
+                            <input type="submit" value="Sauvegarder" class="ui button large fluid green">
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -2,8 +2,8 @@
     <div class="ui fixed inverted menu">
         <a href="#/commentaire" class="header item">Accueil</a>
         <div class="right menu">
-            <a href="#/changePassword" class="ui item"><span>Changer mon mot de passe</span></a>
-            <a  href="#/profil" class="ui item"><span>Hello {{user.nom.substring(0, 1)}} {{user.prenom}}</span></a>
+            <a href="#/changePassword/{{user.id}}" class="ui item"><span>Changer mon mot de passe</span></a>
+            <a  href="#/profil/{{user.id}}" class="ui item"><span>Hello {{user.nom.substring(0, 1)}} {{user.prenom}}</span></a>
             <a class="ui item" ng-click="logout()">Logout</a>
         </div>
     </div>

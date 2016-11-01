@@ -1,0 +1,77 @@
+<div ng-include src="'app/views/navbar/navbar.html'"></div>
+
+<div class="ui main container">
+    <link rel="stylesheet" href="public/css/register.css">
+
+    <div class="ui negative message success_mess" style="display:none;">
+        <div class="error"></div>
+    </div>
+    <div class="ui positive message error_mess" style="display:none;">
+        <div class="success"></div>
+    </div>
+
+    <div class="ui one column center aligned grid">
+        <div class="column six wide form-holder">
+            <h2 class="center aligned header form-head">Register</h2>
+            <div class="ui form">
+                <form ng-submit="register()">
+
+                    <div class="field">
+                        <input type="email" 
+                                name="email" 
+                                id="email" 
+                                placeholder="email"
+                                ng-model="email">
+                    </div>
+
+                    <div class="field">
+                        <input type="text" 
+                                name="nom" 
+                                id="nom"  
+                                placeholder="nom"
+                                ng-model="nom">
+                    </div>
+
+                    <div class="field">
+                        <input type="text" 
+                                name="prenom" 
+                                id="prenom"  
+                                placeholder="prenom"
+                                ng-model="prenom">
+                    </div>
+
+                    <div class="field">
+                        <input type="date" 
+                                name="date_naissance" 
+                                id="date_naissance"  
+                                placeholder="date de naissance"
+                                ng-model="date_naissance">
+                    </div>
+
+                    <div class="field">
+                        <input type="password" 
+                                name="password" 
+                                id="password"  
+                                placeholder="password"
+                                ng-model="password">
+                    </div>
+
+                    <div class="field">
+                        <input type="password" 
+                                name="password_reload" 
+                                id="password_reload"  
+                                placeholder="password"
+                                ng-model="password_two">
+                    </div>
+
+                    <hr>
+                    <div class="field">
+                        <input type="submit" value="Register" class="ui button large fluid green">
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    
+</div>
